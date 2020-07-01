@@ -566,7 +566,7 @@ void Scene::loadCameraIndices(vector<vector<uint32> *> &cameraIndices, vector<ui
 		camerasPerSample = 1;
 		cameraIndices.back() = new vector<uint32>(vertexCount, cameraIdx);
 
-		cout << exception.getMessage() << " " << exception.getFileName() << "\n";
+	//	cout << exception.getMessage() << " " << exception.getFileName() << "\n";
 		cout << "Could not load views IDs for camera " << cameraIdx << " and scale " << scale << ".\n";
 		cout << "Using only reference view for visibility constraints.\n" << flush;
 	}
