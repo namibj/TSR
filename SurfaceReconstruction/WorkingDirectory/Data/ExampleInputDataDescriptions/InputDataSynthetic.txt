@@ -1,5 +1,5 @@
 // where to store the data
-string sceneFolder = C:\Dev\Scenes\WedgeComplex; // scene root folder where all the data is
+string sceneFolder = Data; // scene root folder where all the data is
 string relativeCamerasFileName = Cameras.txt; // where to save the cameras file for the automatically and randomly generated synthetic cameras, relative to "<sceneFolder>/Results"
 
 // how many cameras, image resolution, focal length boundaries, minimum distance to surface
@@ -23,4 +23,4 @@ Real relativeNoiseMean = 0.00; // mean of the noise to be added to the samples -
 Real relativeNoiseStandardDeviation = 0.00; // higher values mean more normal distribution noise on depth map values from ray tracing, see the paper or code for the exact impact of this noise standard deviation value
 
 // synthetic input object to be sampled
-string groundTruthFile = C:\Dev\Scenes\WedgeComplex\SyntheticWedgeComplex.ply; // ply file containing ground truth object which is ray traced for depth maps; noise is optionally added; depths are converted to a point cloud; TSR reconstructs it. 
+string groundTruthFile = Data/SyntheticWedgeComplex.ply; // ply file containing ground truth object which is ray traced for depth maps; noise is optionally added; depths are converted to a point cloud; TSR reconstructs it.
