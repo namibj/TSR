@@ -8,6 +8,8 @@
  */
 
 #include <algorithm>
+#include <ext/stdio_filebuf.h>
+#include <fstream>
 #include "Math/MathHelper.h"
 #include "SurfaceReconstruction/Geometry/FlexibleMesh.h"
 #include "SurfaceReconstruction/Refinement/MeshDijkstra.h"
@@ -18,7 +20,7 @@ using namespace SurfaceReconstruction;
 
 const uint32 MeshDijkstra::INVALID_NODE = (uint32) -1;
 
-MeshDijkstra::MeshDijkstra() :
+MeshDijkstra::MeshDijkstra(ostream log_stream) :
 	mMesh(NULL), mTriangleNormals(NULL),
 	mVertexNeighborsOffsets(NULL), mVertexNeighbors(NULL)
 {
@@ -26,6 +28,7 @@ MeshDijkstra::MeshDijkstra() :
 	mOrder.reserve(count);
 	mVertices.reserve(count);
 	mWorkingSet.reserve(count);
+    visitedVerticesLog = std::osyncstream(log_stream);
 }
 
 void MeshDijkstra::findVertices(const FlexibleMesh *mesh, const Vector3 *triangleNormals,

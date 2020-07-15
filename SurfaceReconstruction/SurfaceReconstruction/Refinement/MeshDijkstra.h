@@ -10,6 +10,8 @@
 #ifndef _MESH_DIJKSTRA_H_
 #define _MESH_DIJKSTRA_H_
 
+#include <syncstream>
+#include <ostream>
 #include <algorithm>
 #include <map>
 #include <vector>
@@ -36,7 +38,7 @@ namespace SurfaceReconstruction
 		};
 
 	public:
-		MeshDijkstra();
+		MeshDijkstra(ostream *log_stream);
 		inline void findVertices(const FlexibleMesh *mesh, const Math::Vector3 *triangleNormals,
 			const uint32 *vertexNeighbors, const uint32 *vertexNeighborsOffsets,
 			const Surfel &startSurfel, const uint32 *startTriangle,
@@ -85,6 +87,9 @@ namespace SurfaceReconstruction
 		const Math::Vector3 *mTriangleNormals;
 		const uint32 *mVertexNeighborsOffsets;	/// mVertexNeighbors[i] starts at mVertexNeighborsOffsets[i] and ends at (exclusive) mVertexNeighborsOffsets[i + 1];
 		const uint32 *mVertexNeighbors;			/// mVertexNeighbors[i] contains the global direct vertex neighbor indices of vertex i
+		
+		// logging output
+		std::osyncstream visitedVerticesLog;
 	};
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
