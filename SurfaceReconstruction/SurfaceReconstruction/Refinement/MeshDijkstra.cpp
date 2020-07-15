@@ -28,7 +28,7 @@ MeshDijkstra::MeshDijkstra(ostream log_stream) :
 	mOrder.reserve(count);
 	mVertices.reserve(count);
 	mWorkingSet.reserve(count);
-    visitedVerticesLog = std::osyncstream(log_stream);
+	visitedVerticesLog = std::osyncstream(log_stream);
 }
 
 void MeshDijkstra::findVertices(const FlexibleMesh *mesh, const Vector3 *triangleNormals,

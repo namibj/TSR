@@ -62,9 +62,9 @@ FSSFRefiner::FSSFRefiner(const string &meshFileName) :
 FSSFRefiner::FSSFRefiner() : 
 	mDijkstras(NULL), mLocalConfidences(NULL)//, mLocalEdgeWeights(NULL)
 {
-    int LOG_FD_NUM = 6;
-    __gnu_cxx::stdio_filebuf<char> logFileBuf(LOG_FD_NUM, std::ios::out);
-    
+	int LOG_FD_NUM = 6;
+	__gnu_cxx::stdio_filebuf<char> logFileBuf(LOG_FD_NUM, std::ios::out);
+
 	// objects for parallel dijkstra searches	
 	const uint32 maxNumThreads = omp_get_max_threads();
 	mDijkstras = new MeshDijkstra[maxNumThreads];
